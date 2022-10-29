@@ -127,6 +127,7 @@ const sort = () => {
 const steps = () => {
     const steps = echarts.init(document.getElementById("steps") as HTMLElement)
     steps.setOption(stepOption);
+    console.time();
 }
 
 
