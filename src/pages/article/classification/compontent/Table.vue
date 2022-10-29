@@ -1,5 +1,5 @@
 <template>
-    <el-table :border="tabStyles.border" :fit="tabStyles.fit" :data="tableData.taDate" style="width: 100%">
+    <el-table v-loading="loading" :border="tabStyles.border" :fit="tabStyles.fit" :data="tableData.taDate" style="width: 100%">
         <el-table-column v-for="(item, value) in tableColumnData" :key="item.name" :label="item.name"
             :prop="item.prototype" width="180">
         </el-table-column>
@@ -32,11 +32,14 @@ type tabStyles = {
     fit: boolean
 }
 const prop = defineProps(['tabDate','searchId'])
+const loading = ref(true)
 console.log(prop.tabDate);
 
 
 onMounted(() => {
-    show()
+    setTimeout(() => {
+        show()
+    }, 500)
 })
 // 更新文章分类
 const show = async () => {
@@ -50,6 +53,7 @@ const show = async () => {
         tableData.taDate = data.data
         console.log(prop.searchId);
     }
+    loading.value = false
     
     
 }

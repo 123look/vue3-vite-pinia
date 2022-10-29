@@ -1,6 +1,6 @@
 <template>
     <el-card class="box-card">
-        <el-form :model="form">
+        <el-form>
             <el-row>
                 <el-col :span="1">
                     <el-form-item>
@@ -47,13 +47,7 @@ const tabDate = reactive({
 })
 const title = ref('增加文章分类')
 const useCompontent = ref<any>();
-const form = reactive({
-
-})
 const searchBtn = () => {
-    // const {data} = await searchArticle(searchId.value)
-    // console.log(data);
-    // tabDate.table = data.data
     useCompontent.value.show()
 }
 const dialogVisible = ref(false)

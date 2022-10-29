@@ -36,6 +36,14 @@ type ArticleClass = {
     cate_id: number|string,
     state: number|string
 }
+// add参数
+type addArtList = {
+    title: string,
+    cate_id: string | number,
+    content: string,
+    cover_img: string,
+    state: string | boolean
+}
 // 注册
 export const register = (data: RegInfo) => {
     console.log(data);
@@ -123,5 +131,13 @@ export const getArticleList = () => {
     return server({
         method: 'get',
         url: `/my/article/list?pagenum=1&pagesize=10`,
+    })
+}
+// 发布文章
+export const addArticleList = (data: addArtList) => {
+    return server({
+        method: 'post',
+        url: '/my/article/add',
+        data
     })
 }

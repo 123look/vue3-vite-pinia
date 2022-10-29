@@ -19,6 +19,7 @@ export const userInfoStore = defineStore(Names.Test, {
             ],
             state: false,
             title: '',
+            dialogVisible: false,
             updateArticle:<Article> {
                 id: 0,
                 cate_name: '',
@@ -34,6 +35,9 @@ export const userInfoStore = defineStore(Names.Test, {
        async getArticle(article: Article){
             const {data} = await getArticleClass()
             article = data.data
+        },
+        isDialogVisible() {
+            this.dialogVisible != this.dialogVisible
         }
     }
 })

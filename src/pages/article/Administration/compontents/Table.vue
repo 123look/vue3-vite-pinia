@@ -1,5 +1,5 @@
 <template>
-    <el-table border :data="tableData" style="width: 100%">
+    <el-table v-loading="loading" border :data="tableData" style="width: 100%">
         <el-table-column v-for="item in columnHead" :label="item.name" :prop="item.prototype" :width="item.width">
         </el-table-column>
         <el-table-column label="操作">
@@ -18,6 +18,7 @@ interface User {
     name: string
     address: string
 }
+const loading = ref(true)
 onMounted(() => {
     show()
 }) 
