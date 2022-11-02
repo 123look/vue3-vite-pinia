@@ -8,7 +8,8 @@ const server = axios.create({
 const token = window.localStorage.getItem('token')
 server.interceptors.request.use((config) => {
     if(token) {
-        config.headers.Authorization = token
+        const con: any = config.headers
+        con.Authorization = token
     }
     return config
 },(error)=>{
@@ -19,7 +20,7 @@ type RegInfo = {
     password: string 
 }
 type UserInfo = {
-    id: number,
+    id: number|undefined,
     username: string,
     nickname: string,
     email: string,

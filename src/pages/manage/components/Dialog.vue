@@ -15,7 +15,7 @@
         </el-upload>
       </el-form-item>
       <el-form-item label="用户名">
-        <el-input :clearable="clearable" v-model="form.name" />
+        <el-input :clearable="clearable" v-model="form.username" />
       </el-form-item>
       <el-form-item label="邮箱">
         <el-input :clearable="clearable" v-model="form.email" />
@@ -41,7 +41,7 @@ import { uploadImg, getUserInfo, updateUserInfo } from '@/http/index'
 
 type userInfo = {
   id: number|undefined,
-  name: string,
+  username: string,
   user_pic: string,
   nickname: string,
   email: string
@@ -60,7 +60,7 @@ const Confirm = async() => {
 }
 let form = reactive<userInfo>({
   id: undefined,
-  name: '',
+  username: '',
   user_pic: '',
   email: '',
   nickname: ''
@@ -74,7 +74,7 @@ const UserInfo = async() => {
   imageUrl.value = data.data.user_pic
   form.id = data.data.id
   form.user_pic = data.data.user_pic
-  form.name = data.data.username
+  form.username = data.data.username
   form.email = data.data.email
   form.nickname = data.data.nickname
 }
@@ -100,7 +100,7 @@ const handleAvatarSuccess: UploadProps['onSuccess'] = (
     avatar: ''
   })
   // 将对象uploadFile.raw传入
-  reader.readAsDataURL(uploadFile.raw);
+  reader.readAsDataURL(uploadFile.raw as any);
   // 将图片转成base64编码格式
   reader.onload = async () => {
     baseUrl.avatar = reader.result
