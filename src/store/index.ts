@@ -25,7 +25,6 @@ export const userInfoStore = defineStore(Names.Test, {
                 cate_name: '',
                 cate_alias: ''
             }
-            
         }
     },
     getters: {

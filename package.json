@@ -13,6 +13,7 @@
     "echarts": "^5.4.0",
     "element-plus": "^2.2.18",
     "pinia": "^2.0.23",
+    "quarkd": "^1.0.8",
     "vue": "^3.2.37",
     "vue-router": "4"
   },
